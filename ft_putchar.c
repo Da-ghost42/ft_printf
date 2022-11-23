@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboutuil <mboutuil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 01:59:10 by mboutuil          #+#    #+#             */
-/*   Updated: 2022/11/18 02:00:39 by mboutuil         ###   ########.fr       */
+/*   Created: 2022/11/20 13:45:34 by mboutuil          #+#    #+#             */
+/*   Updated: 2022/11/22 06:13:12 by mboutuil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"printf.h"
+#include"ft_printf.h"
 
-int	ft_putchar(char f)
+int	ft_putchar(char c)
 {
-	return (write(1, &f, 1));
+	return (write(1, &c, 1));
 }

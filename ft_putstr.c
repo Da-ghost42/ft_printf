@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboutuil <mboutuil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 02:00:55 by mboutuil          #+#    #+#             */
-/*   Updated: 2022/11/18 03:08:19 by mboutuil         ###   ########.fr       */
+/*   Created: 2022/11/20 13:58:32 by mboutuil          #+#    #+#             */
+/*   Updated: 2022/11/22 00:58:02 by mboutuil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"printf.h"
+#include"ft_printf.h"
 
-int	ft_putstr(char *f)
+int	ft_putstr(char *s)
 {
-	if (!f)
+	if (!s)
 		return (write(1, "(null)", 6));
-	return (write(1, f, ft_strlen(f)));
+	return (write(1, s, ft_strlen(s)));
 }

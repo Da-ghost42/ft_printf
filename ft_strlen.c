@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboutuil <mboutuil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 02:18:13 by mboutuil          #+#    #+#             */
-/*   Updated: 2022/11/18 02:53:04 by mboutuil         ###   ########.fr       */
+/*   Created: 2022/11/20 14:03:21 by mboutuil          #+#    #+#             */
+/*   Updated: 2022/11/20 14:04:59 by mboutuil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"printf.h"
+#include"ft_printf.h"
 
-int	ft_strlen(const char *s)
+int	ft_strlen(char *s)
 {
 	int	i;
 
@@ -21,4 +21,3 @@ int	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-

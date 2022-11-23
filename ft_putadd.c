@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboutuil <mboutuil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 02:21:31 by mboutuil          #+#    #+#             */
-/*   Updated: 2022/11/18 08:07:49 by mboutuil         ###   ########.fr       */
+/*   Created: 2022/11/22 02:31:59 by mboutuil          #+#    #+#             */
+/*   Updated: 2022/11/23 01:43:52 by mboutuil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"printf.h"
+#include "ft_printf.h"
 
 int	ft_putadd(void *p)
 {
@@ -21,10 +21,10 @@ int	ft_putadd(void *p)
 	if (p)
 	{
 		i = (unsigned long)p;
-		j += ft_putnbr_b(i, 'x');
+		j += ft_putnbr_base(i, 'x');
 		return (j);
 	}
-	else 
+	else
 		j += write(1, "0", 1);
-		return (j);
+	return (j);
 }

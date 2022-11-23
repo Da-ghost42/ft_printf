@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_b.c                                      :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboutuil <mboutuil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 02:04:18 by mboutuil          #+#    #+#             */
-/*   Updated: 2022/11/18 03:03:00 by mboutuil         ###   ########.fr       */
+/*   Created: 2022/11/20 14:44:32 by mboutuil          #+#    #+#             */
+/*   Updated: 2022/11/23 00:39:04 by mboutuil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"printf.h"
+#include "ft_printf.h"
 
-int	ft_putnbr_b(unsigned int nb, char format)
+int	ft_nbrlen(long long int nb, int base)
 {
-	char	*base;
-	int		n;
+	int	i;
 
-	if (format == 'X')
-		base = "123456789ABCDEF";
-	if (format == 'x')
-		base = "123456789abcdef";
-	if (nb < 16)
-		ft_putchar(base[nb]);
-	if (nb >= 16)
+	i = 0;
+	if (nb <= 0)
 	{
-		ft_putnbr_b(nb / 16, format);
-		ft_putnbr_b(nb % 16, format);
+		nb *= -1;
+		i++;
 	}
-	return (treatnb(nb, 16));
+	while (nb > 0)
+	{
+		nb /= base;
+		i++;
+	}
+	// printf("%d\n",i);
+	return (i);
 }

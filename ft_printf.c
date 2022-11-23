@@ -5,44 +5,59 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboutuil <mboutuil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 01:17:06 by mboutuil          #+#    #+#             */
-/*   Updated: 2022/11/18 08:23:38 by mboutuil         ###   ########.fr       */
+/*   Created: 2022/11/19 23:37:21 by mboutuil          #+#    #+#             */
+/*   Updated: 2022/11/23 02:10:19 by mboutuil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"printf.h"
+#include"ft_printf.h"
 
-int	ft_printf(const char *s, ...)
+int spec_treater(va_list arg, char format)
 {
-	va_list	arg;
-	int		i;
-	int		j;
+	int len = 0;
+	if (format == 'c')
+		len = ft_putchar(va_arg(arg,int));
+	else if  (format == 's')
+		len += ft_putstr(va_arg(arg,char *));
+	else if(format == 'd' || format == 'i')
+	 	len = ft_putnbr(va_arg(arg, int));
+	else if(format == 'u')
+		len = ft_putnbr_base(va_arg(arg,unsigned int),format);
+	else if (format == 'x')
+		len = ft_putnbr_base(va_arg(arg,unsigned int), format);
+	else if  (format == 'X')
+		len = ft_putnbr_base(va_arg(arg,unsigned int),format);
+	else if (format == 'p')
+		len = ft_putadd(va_arg(arg, void *));
+	else
+		len = ft_putchar(format);
+	return (len);
+}
 
-	va_start(arg, s);
+int	ft_printf(const char *format, ...)
+{
+	unsigned int i;
+	va_list		arg;
+	int j;
+
 	i = 0;
 	j = 0;
-	while (s[i] && i < ft_strlen(s))
+	va_start(arg, format);
+	while (format[j])
 	{
-		while (s[i] && s[i] != '%' && i < ft_strlen(s))
-		{	
-			if (ft_putchar(s[i]) < 0)
-				return (-1);
-			i++;
+		while (format[j] && format[j] != '%' && j < ft_strlen((char *)format))
+		{
+			i += ft_putchar(format[j]);
 			j++;
 		}
-		if (s[i] == '%' && i < ft_strlen(s))
+		if (format[j] && format[j] == '%' && j < ft_strlen((char *)format))
 		{
-			j += treat_format(arg, s[i + 1]);
-			i++;
+			i += spec_treater(arg, format [j + 1]);
+			j++;
 		}
-		i++;
+		j++;
 	}
 	va_end(arg);
-	return (j);
+	return (i);
 }
-int main()
-{
-	char *p = "hello";
-	printf("%% ->%%-> %%-> %% ->%%\n");
-	ft_printf("%% ->%%-> %%-> %% ->%%\n");
-}
+
