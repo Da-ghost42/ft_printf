@@ -6,13 +6,13 @@
 /*   By: mboutuil <mboutuil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 00:17:31 by mboutuil          #+#    #+#             */
-/*   Updated: 2022/11/22 05:47:23 by mboutuil         ###   ########.fr       */
+/*   Updated: 2022/11/26 20:25:26 by mboutuil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_base(unsigned int nb, char format)
+int	ft_putnbr_base(unsigned long nb, char format)
 {
 	char	*base;
 
@@ -22,12 +22,12 @@ int	ft_putnbr_base(unsigned int nb, char format)
 		base = "0123456789abcdef";
 	if (format == 'u')
 		base = "0123456789";
-	if (nb >= 0 && nb < (unsigned int)ft_strlen(base))
+	if (nb < (unsigned long)ft_strlen(base))
 		ft_putchar(base[nb]);
-	if (nb >= (unsigned int)ft_strlen(base))
+	else
 	{
-		ft_putnbr_base(nb / ((unsigned int)ft_strlen(base)), format);
-		ft_putnbr_base(nb % ((unsigned int)ft_strlen(base)), format);
+		ft_putnbr_base(nb / ((unsigned long)ft_strlen(base)), format);
+		ft_putnbr_base(nb % ((unsigned long)ft_strlen(base)), format);
 	}
 	return (ft_nbrlen(nb, ft_strlen(base)));
 }

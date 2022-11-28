@@ -6,7 +6,7 @@
 /*   By: mboutuil <mboutuil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 14:44:32 by mboutuil          #+#    #+#             */
-/*   Updated: 2022/11/23 00:39:04 by mboutuil         ###   ########.fr       */
+/*   Updated: 2022/11/23 02:45:40 by mboutuil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ int	ft_nbrlen(long long int nb, int base)
 		nb /= base;
 		i++;
 	}
-	// printf("%d\n",i);
 	return (i);
 }

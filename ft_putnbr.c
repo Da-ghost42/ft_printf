@@ -6,7 +6,7 @@
 /*   By: mboutuil <mboutuil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 14:05:46 by mboutuil          #+#    #+#             */
-/*   Updated: 2022/11/23 00:38:26 by mboutuil         ###   ########.fr       */
+/*   Updated: 2022/11/23 02:57:21 by mboutuil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_putnbr(int nb)
 {
 	long int	nbr;
-	
+
 	nbr = nb;
 	if (nb < 0)
 	{
